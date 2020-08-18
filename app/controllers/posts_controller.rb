@@ -14,7 +14,11 @@ class PostsController < ApplicationController
 
   def checked
     post = Post.find(params[:id])
+<<<<<<< HEAD
     if post.checked then
+=======
+    if post.checked 
+>>>>>>> 7494bf5... 既読機能のサーバーサイド実装
       post.update(checked: false)
     else
       post.update(checked: true)
