@@ -3,14 +3,22 @@ class PostsController < ApplicationController
     @posts = Post.all.order(id: "DESC")
   end
 
+  
   def create
+    
+    
+    
     Post.create(content: params[:content])
     redirect_to action: :index
   end
 
   def checked
     post = Post.find(params[:id])
+<<<<<<< HEAD
+    if post.checked then
+=======
     if post.checked 
+>>>>>>> 7494bf5... 既読機能のサーバーサイド実装
       post.update(checked: false)
     else
       post.update(checked: true)
