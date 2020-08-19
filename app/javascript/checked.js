@@ -2,6 +2,10 @@ function check() {
   const posts = document.getElementsByClassName("post");
   postsA = Array.from(posts);
   postsA.forEach(function (post) {
+    if (post.getAttribute("data-load") != null) {
+      return null;
+    }
+    post.setAttribute("data-load", "true");
     post.addEventListener("click", (e) => {
       const postId = post.getAttribute("data-id");
       const XHR = new XMLHttpRequest();
@@ -23,7 +27,8 @@ function check() {
       }
       XHR.onerror = () => {
         alert("Request failed");
-      }; 
+      };
+      e.preventDefault(); 
     });
   });
 }
